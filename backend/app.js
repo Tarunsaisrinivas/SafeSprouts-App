@@ -20,7 +20,15 @@ app.use(express.json());
 
 app.use("/api/auth", userAuth);
 
+const http = require("http");
+const socketIO = require("socket.io");
+const server = http.createServer(app);
+
+const io = socketIO(server);
+const socketHandler = require("./src/sockets/socket-main");
+socketHandler.setupSocketIO(io);
+
 const port = 4040;
-app.listen(4040, () => {
+server.listen(4040, () => {
   console.log(`Server is running on port: ${port}`);
 });
