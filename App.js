@@ -12,7 +12,7 @@ import Settings from "./components/Settings";
 import ChildTrack from "./screens/ChildTrack";
 import SoundPlayer from "./screens/Sound";
 import { Button } from "react-native";
-import { Entypo, AntDesign, Ionicons, FontAwesome } from '@expo/vector-icons'; // Import necessary icons
+import { AntDesign, Ionicons, FontAwesome } from '@expo/vector-icons'; // Import necessary icons
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -61,15 +61,9 @@ const App = () => {
         <Stack.Screen
           name="Dashboard"
           component={Dashboard}
-          options={({ navigation }) => ({
+          options={() => ({
             headerShown: false,
-            headerRight: () => (
-              <Button
-                onPress={() => handleLogout(navigation)}
-                title="Logout"
-                color="#023e8a"
-              />
-            ),
+           
           })}
         />
         <Stack.Screen
